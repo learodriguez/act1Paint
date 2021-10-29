@@ -1,20 +1,33 @@
+"""Paint, for drawing shapes.
+
+Exercises
+
+1. Add a color.
+2. Complete circle.
+3. Complete rectangle.
+4. Complete triangle.
+5. Add width parameter.
+
+"""
 '''Herramientas Computacionales: El Arte de la Programación
 Grupo: 201   TC1001S
 Modified by:
         Léa Rodríguez Jouault A01659896   
         Mauricio Juárez Sánchez A01660336'''
-
+#Importando librería math para calcular la raíz
+#Importando turtle para figuras e instrucciones de movimiento.
+from math import sqrt
 from turtle import *
 from freegames import vector
-from math import sqrt # se añade la librería math para utilizar la raiz cuadrada
 
+#Esta función toma los 2 puntos que selecciones el usuario y los une con una línea
 def line(start, end):
     "Draw line from start to end."
     up()
     goto(start.x, start.y)
     down()
     goto(end.x, end.y)
-
+# Dibuja utilizando líneas y giros de 90°
 def square(start, end):
     "Draw square from start to end."
     up()
@@ -27,24 +40,24 @@ def square(start, end):
         left(90)
 
     end_fill()
-
+#Dibuja un circulo obteniendo el radio y con ayuda de líneas forma la figura.
 def circle(start, end):
     #x=rcos(theta) y=rsin(theta)
     "Draw circle from start to end."
     up()
     goto(start.x, start.y)
-    r=sqrt((end.x*2)+(end.y*2)) # radio
+    r=sqrt((end.x**2)+(end.y**2))
 
     down()
     begin_fill()
     forward(r)
-    for i in range(1,360): # total del círculo
-        speed(0) # velocidad máxima
+    for i in range(1,360):
+        speed(0)
         left(1)
         goto(start.x, start.y)
-        forward(r); # se llenará el cículo con los radios
+        forward(r)
     pass  # TODO
-
+#Dibuja 2 líneas y con ayuda de fill se completa el rectángulo
 def rectangle(start, end):
     "Draw rectangle from start to end."
     up()
@@ -60,7 +73,7 @@ def rectangle(start, end):
             left(90)
     end_fill()
     pass  # TODO
-
+#Con un ángulo base, dibuja un triángulo con los clicks del usuario como referenciay apoyandose de un ángulo.
 def triangle(start, end):
     "Draw triangle from start to end."
     up()
@@ -96,17 +109,15 @@ setup(420, 420, 370, 0)
 onscreenclick(tap)
 listen()
 onkey(undo, 'u')
+#Se agregaron opciones de colores correspondientes a una tecla de teclado.
 onkey(lambda: color('black'), 'K')
 onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
-
-# Se añaden colores
 onkey(lambda: color('cyan'), 'C')
 onkey(lambda: color('purple'), 'P')
 onkey(lambda: color('yellow'), 'Y')
-
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
