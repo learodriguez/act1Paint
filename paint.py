@@ -6,6 +6,7 @@ Modified by:
 
 from turtle import *
 from freegames import vector
+from math import sqrt # se añade la librería math para utilizar la raiz cuadrada
 
 def line(start, end):
     "Draw line from start to end."
@@ -28,7 +29,20 @@ def square(start, end):
     end_fill()
 
 def circle(start, end):
+    #x=rcos(theta) y=rsin(theta)
     "Draw circle from start to end."
+    up()
+    goto(start.x, start.y)
+    r=sqrt((end.x*2)+(end.y*2)) # radio
+
+    down()
+    begin_fill()
+    forward(r)
+    for i in range(1,360): # total del círculo
+        speed(0) # velocidad máxima
+        left(1)
+        goto(start.x, start.y)
+        forward(r); # se llenará el cículo con los radios
     pass  # TODO
 
 def rectangle(start, end):
