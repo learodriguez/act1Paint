@@ -1,3 +1,9 @@
+'''Herramientas Computacionales: El Arte de la Programación
+Grupo: 201   TC1001S
+Modified by:
+        Léa Rodríguez Jouault A01659896   
+        Mauricio Juárez Sánchez A01660336'''
+
 from turtle import *
 from freegames import vector
 
